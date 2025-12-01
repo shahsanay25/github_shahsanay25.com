@@ -95,9 +95,11 @@
     nav a {
       font-size: 0.9rem;
       color: var(--muted);
+      cursor: pointer;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       color: var(--accent);
     }
 
@@ -108,6 +110,7 @@
       font-size: 0.82rem;
       color: var(--accent);
       background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+      cursor: pointer;
     }
 
     .nav-cta:hover {
@@ -122,7 +125,7 @@
     }
 
     section {
-      margin-top: 3.5rem;
+      margin-top: 2.5rem;
     }
 
     .section-title {
@@ -137,18 +140,28 @@
       margin-bottom: 1.4rem;
     }
 
-    /* Hero */
+    /* Tabs */
 
-    .hero {
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Hero / About */
+
+    .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.3fr);
-      gap: 1.8rem;
+      grid-template-columns: minmax(0, 2.7fr) minmax(0, 2.1fr);
+      gap: 1.6rem;
       margin-top: 1.8rem;
       align-items: center;
     }
 
     @media (max-width: 880px) {
-      .hero {
+      .hero-layout {
         grid-template-columns: 1fr;
       }
     }
@@ -184,16 +197,6 @@
       box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.4);
     }
 
-    .hero h1 {
-      font-size: 2.1rem;
-      margin: 0 0 0.6rem;
-      letter-spacing: -0.02em;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
     .hero-title-line {
       margin-bottom: 0.4rem;
       font-weight: 500;
@@ -201,8 +204,18 @@
       font-size: 0.95rem;
     }
 
-    .hero p {
-      margin: 0.7rem 0 1.4rem;
+    .hero-card h1 {
+      font-size: 2.1rem;
+      margin: 0 0 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-card h1 span {
+      color: var(--accent);
+    }
+
+    .hero-card p {
+      margin: 0.7rem 0 1.1rem;
       color: var(--muted);
       font-size: 0.95rem;
     }
@@ -213,7 +226,7 @@
       gap: 1rem;
       font-size: 0.82rem;
       color: var(--muted);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     .hero-meta span {
@@ -283,14 +296,41 @@
       color: var(--accent);
     }
 
-    .hero-orbit-card {
+    .hero-side-card {
       background: radial-gradient(circle at top, #020617, #020617);
-      padding: 1.6rem 1.5rem;
+      padding: 1.4rem 1.4rem 1.6rem;
       border-radius: var(--radius-2xl);
       border: 1px solid rgba(148, 163, 184, 0.35);
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow-soft);
+    }
+
+    .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(148, 163, 184, 0.7);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+    }
+
+    .profile-name {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .profile-role {
+      font-size: 0.82rem;
+      color: var(--muted);
     }
 
     .hero-orbit-pill {
@@ -308,7 +348,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.7rem;
       font-size: 0.78rem;
-      margin-top: 0.4rem;
+      margin-top: 0.2rem;
     }
 
     .hero-orbit-item {
@@ -329,7 +369,7 @@
       font-size: 0.82rem;
     }
 
-    /* Generic grids */
+    /* What I do */
 
     .tracks-grid {
       display: grid;
@@ -390,6 +430,8 @@
       margin-top: 0.4rem;
     }
 
+    /* Experience */
+
     .experience-grid {
       display: flex;
       flex-direction: column;
@@ -401,6 +443,8 @@
       border-radius: var(--radius-xl);
       padding: 1.1rem 1.2rem 1rem;
       border: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+      color: var(--muted);
     }
 
     .exp-header {
@@ -408,12 +452,13 @@
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 0.3rem;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
     }
 
     .exp-title {
       font-weight: 600;
       font-size: 0.98rem;
+      color: var(--text);
     }
 
     .exp-meta {
@@ -421,38 +466,24 @@
       color: var(--muted);
     }
 
-    .exp-meta span {
-      display: inline-block;
-      margin-left: 0.4rem;
-    }
-
-    .exp-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-      margin-top: 0.3rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .exp-tag {
-      font-size: 0.7rem;
-      padding: 0.1rem 0.45rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      color: var(--muted);
+    .exp-section-title {
+      font-weight: 600;
+      font-size: 0.84rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.2rem;
+      color: var(--text);
     }
 
     .exp-list {
       padding-left: 1rem;
-      margin: 0.4rem 0 0.1rem;
-      font-size: 0.85rem;
-      color: var(--muted);
+      margin: 0.2rem 0 0.4rem;
     }
 
     .exp-list li {
-      margin-bottom: 0.22rem;
+      margin-bottom: 0.18rem;
     }
+
+    /* Skills */
 
     .skills-grid {
       display: grid;
@@ -471,17 +502,15 @@
       border-radius: var(--radius-xl);
       padding: 1rem 1.1rem 0.9rem;
       border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--muted);
     }
 
     .skill-title {
       font-size: 0.9rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
-    }
-
-    .skill-body {
-      font-size: 0.82rem;
-      color: var(--muted);
+      color: var(--text);
     }
 
     .skill-body span {
@@ -489,6 +518,24 @@
       margin-right: 0.3rem;
       margin-bottom: 0.15rem;
     }
+
+    .resume-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+
+    .resume-badge {
+      font-size: 0.78rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Projects */
 
     .projects-grid {
       display: grid;
@@ -507,12 +554,15 @@
       border-radius: var(--radius-xl);
       padding: 1rem 1.1rem 0.9rem;
       border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--muted);
     }
 
     .project-title {
       font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 0.15rem;
+      color: var(--text);
     }
 
     .project-meta {
@@ -521,11 +571,7 @@
       margin-bottom: 0.4rem;
     }
 
-    .project-desc {
-      font-size: 0.84rem;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
+    /* Education */
 
     .edu-grid {
       display: grid;
@@ -555,18 +601,12 @@
       color: var(--text);
     }
 
-    .edu-line {
-      margin-bottom: 0.25rem;
-    }
-
     .cert-list {
       padding-left: 1rem;
       margin: 0.4rem 0 0;
     }
 
-    .cert-list li {
-      margin-bottom: 0.2rem;
-    }
+    /* Contact */
 
     .contact-card {
       background: var(--bg-alt);
@@ -591,22 +631,6 @@
       font-size: 0.78rem;
       color: var(--muted);
     }
-
-    .resume-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.7rem;
-    }
-
-    .resume-badge {
-      font-size: 0.78rem;
-      border-radius: 999px;
-      padding: 0.25rem 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.9);
-    }
   </style>
 </head>
 <body>
@@ -615,284 +639,356 @@
       <div class="logo">SANAY SHAH</div>
       <nav>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#tracks">What I do</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
+          <li><a data-tab="about" class="active">About</a></li>
+          <li><a data-tab="experience">Experience</a></li>
+          <li><a data-tab="projects">Projects</a></li>
+          <li><a data-tab="skills">Skills</a></li>
+          <li><a data-tab="education">Education</a></li>
+          <li><a data-tab="contact">Contact</a></li>
         </ul>
       </nav>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <button class="nav-cta" data-tab="contact">Contact</button>
     </div>
   </header>
 
   <main>
-    <!-- Hero / About -->
-    <section id="about" class="hero">
-      <div class="hero-card">
-        <div class="hero-chip">
-          <span class="hero-chip-dot"></span>
-          <span>GCP Certified · Data & Analytics Engineer</span>
+    <!-- ABOUT TAB -->
+    <section id="about" class="tab-content active">
+      <div class="hero-layout">
+        <div class="hero-card">
+          <div class="hero-chip">
+            <span class="hero-chip-dot"></span>
+            <span>GCP Certified · Data & Analytics Engineer</span>
+          </div>
+          <div class="hero-title-line">
+            BigQuery · Airflow · Looker/GA4 · Kafka · Docker · MLOps
+          </div>
+          <h1>Hi, I’m <span>Sanay</span>.</h1>
+          <p>
+            I’m a Data & Analytics Engineer with 5+ years of experience building BigQuery data
+            models, Airflow ELT pipelines, and analytics layers on top of large-scale
+            telemetry and business data. I enjoy turning messy event streams into clean,
+            governed datasets that product, GTM, and ops teams can trust.
+          </p>
+          <p>
+            On the engineering side I work with Docker, Kubernetes, CI/CD and observability stacks,
+            and I use ML/AI in practical ways—like ticket classification, anomaly detection, and
+            automated health checks—to reduce manual work and speed up decisions.
+          </p>
+
+          <div class="hero-meta">
+            <span>📍 United States · Open to remote / hybrid</span>
+            <span class="hero-meta-badge">Google Cloud Professional Data Engineer</span>
+          </div>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://www.linkedin.com/in/shahsanay25"
+              target="_blank"
+              rel="noopener"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="btn btn-ghost"
+              href="https://github.com/shahsanay25"
+              target="_blank"
+              rel="noopener"
+            >
+              GitHub
+            </a>
+            <!-- Replace # with your actual resume PDF link -->
+            <a
+              class="btn btn-outline"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              Download Resume
+            </a>
+          </div>
         </div>
-        <div class="hero-title-line">
-          Data & Analytics Engineer · BigQuery · Airflow · Looker/GA4 · Kafka · Docker · MLOps
+
+        <div class="hero-side-card">
+          <div class="profile-wrapper">
+            <!-- IMPORTANT: save your LinkedIn profile image as profile.jpg next to this file -->
+            <img src="profile.jpg" alt="Sanay Shah" class="profile-pic" />
+            <div class="profile-name">Sanay Shah</div>
+            <div class="profile-role">Data & Analytics Engineer @ Prodapt</div>
+          </div>
+
+          <div class="hero-orbit-pill">Snapshot</div>
+          <div class="hero-orbit-grid">
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Domains</div>
+              <div class="hero-orbit-strong">Telecom · Financial analytics</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Platform work</div>
+              <div class="hero-orbit-strong">Telemetry, AIOps, data products</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Daily tools</div>
+              <div class="hero-orbit-strong">BigQuery, Airflow, Kafka, Druid</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Beyond data</div>
+              <div class="hero-orbit-strong">Kubernetes, CI/CD, observability, AI</div>
+            </div>
+          </div>
         </div>
-        <h1>Hi, I’m <span>Sanay</span>.</h1>
-        <p>
-          I’m a Data & Analytics Engineer (GCP-certified) with 5+ years of experience building BigQuery data
-          models, Airflow ELT pipelines, and Looker/GA4 dashboards on top of petabyte-scale data.
-          I also work hands-on with Docker, Kubernetes, CI/CD, and ML/AI pipelines (Vertex AI, NLP, anomaly
-          detection) to reduce manual work and make data products more reliable and faster to ship.
+      </div>
+
+      <section>
+        <h2 class="section-title">What I do</h2>
+        <p class="section-subtitle">
+          I like sitting at the intersection of data engineering, analytics, and cloud
+          infrastructure—close to the business problems but deep enough in the stack to fix them
+          properly.
         </p>
 
-        <div class="hero-meta">
-          <span>📍 United States · Open to remote / hybrid</span>
-          <span class="hero-meta-badge">Google Cloud Professional Data Engineer</span>
-        </div>
+        <div class="tracks-grid">
+          <div class="track-card">
+            <div class="track-title">Data platforms & pipelines</div>
+            <div class="track-tagline">BigQuery · Airflow · Kafka · Druid</div>
+            <div class="track-tags">
+              <span class="tag">ETL/ELT</span>
+              <span class="tag">Semantic modeling</span>
+              <span class="tag">KPI governance</span>
+              <span class="tag">Data quality</span>
+            </div>
+            <p class="track-footer">
+              Design and maintain pipelines and warehouse schemas that keep telemetry and business
+              data fresh, modeled, and reliable for downstream users.
+            </p>
+          </div>
 
-        <div class="hero-actions">
-          <a
-            class="btn btn-primary"
-            href="https://www.linkedin.com/in/shahsanay25"
-            target="_blank"
-            rel="noopener"
-          >
-            LinkedIn
-          </a>
-          <a
-            class="btn btn-ghost"
-            href="https://github.com/shahsanay25"
-            target="_blank"
-            rel="noopener"
-          >
-            GitHub
-          </a>
-          <!-- Replace # with your actual resume PDF link -->
-          <a
-            class="btn btn-outline"
-            href="#"
-            target="_blank"
-            rel="noopener"
-          >
-            Download Resume
-          </a>
-        </div>
-      </div>
+          <div class="track-card">
+            <div class="track-title">Analytics & product insights</div>
+            <div class="track-tagline">Looker · GA4 · Experimentation</div>
+            <div class="track-tags">
+              <span class="tag">Funnels & retention</span>
+              <span class="tag">Attribution</span>
+              <span class="tag">Self-serve dashboards</span>
+              <span class="tag">A/B testing datasets</span>
+            </div>
+            <p class="track-footer">
+              Model GA4 and other event sources into clean views so PMs, marketing, and ops teams
+              can answer their own questions without fighting the data.
+            </p>
+          </div>
 
-      <div class="hero-orbit-card">
-        <div class="hero-orbit-pill">Snapshot</div>
-        <div class="hero-orbit-grid">
-          <div class="hero-orbit-item">
-            <div class="hero-orbit-label">Platform scale</div>
-            <div class="hero-orbit-strong">5 PB+ telemetry · 4.5 PB+ streaming</div>
-          </div>
-          <div class="hero-orbit-item">
-            <div class="hero-orbit-label">Performance & reliability</div>
-            <div class="hero-orbit-strong">18% faster pipelines · 70% MTTR reduction</div>
-          </div>
-          <div class="hero-orbit-item">
-            <div class="hero-orbit-label">Product analytics</div>
-            <div class="hero-orbit-strong">GA4 funnels · +28% attribution accuracy</div>
-          </div>
-          <div class="hero-orbit-item">
-            <div class="hero-orbit-label">Cloud & MLOps</div>
-            <div class="hero-orbit-strong">GKE · Vertex AI · CI/CD · blue–green</div>
+          <div class="track-card">
+            <div class="track-title">ML, AI & DevOps</div>
+            <div class="track-tagline">Vertex AI · Docker · GKE · CI/CD</div>
+            <div class="track-tags">
+              <span class="tag">NLP ticket classification</span>
+              <span class="tag">Anomaly detection</span>
+              <span class="tag">GitLab CI/CD</span>
+              <span class="tag">Blue–green deploys</span>
+            </div>
+            <p class="track-footer">
+              Use ML and automation to handle repetitive triage and monitoring, and ship data
+              workloads with Docker, Kubernetes, and GitOps-style pipelines.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
     </section>
 
-    <!-- What I do -->
-    <section id="tracks">
-      <h2 class="section-title">What I do</h2>
-      <p class="section-subtitle">
-        I design and run data platforms that combine strong analytics modeling, reliable pipelines,
-        and practical use of ML/AI and DevOps to keep things fast and stable.
-      </p>
-
-      <div class="tracks-grid">
-        <div class="track-card">
-          <div class="track-title">Data platforms & pipelines</div>
-          <div class="track-tagline">BigQuery · Airflow · Kafka · Druid</div>
-          <div class="track-tags">
-            <span class="tag">ETL/ELT</span>
-            <span class="tag">Semantic modeling</span>
-            <span class="tag">KPI governance</span>
-            <span class="tag">Data quality</span>
-          </div>
-          <p class="track-footer">
-            Build and optimize pipelines and warehouse schemas that move petabyte-scale data reliably,
-            with strong metric definitions and performance tuning.
-          </p>
-        </div>
-
-        <div class="track-card">
-          <div class="track-title">Analytics & product insights</div>
-          <div class="track-tagline">Looker · GA4 · Experimentation</div>
-          <div class="track-tags">
-            <span class="tag">Funnels & retention</span>
-            <span class="tag">Attribution</span>
-            <span class="tag">A/B testing datasets</span>
-            <span class="tag">Self-serve BI</span>
-          </div>
-          <p class="track-footer">
-            Model GA4 and event data into usable funnels, retention views, and GTM dashboards that help
-            PMs and marketers understand acquisition, activation, and churn.
-          </p>
-        </div>
-
-        <div class="track-card">
-          <div class="track-title">ML, AI & DevOps</div>
-          <div class="track-tagline">Vertex AI · Docker · GKE · CI/CD</div>
-          <div class="track-tags">
-            <span class="tag">NLP ticket classification</span>
-            <span class="tag">Anomaly detection</span>
-            <span class="tag">GitLab CI/CD</span>
-            <span class="tag">Blue–green deploys</span>
-          </div>
-          <p class="track-footer">
-            Use ML and automation to reduce manual triage and analysis, containerize workloads with
-            Docker on Kubernetes, and ship faster with GitOps-style CI/CD and observability.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience">
+    <!-- EXPERIENCE TAB -->
+    <section id="experience" class="tab-content">
       <h2 class="section-title">Experience</h2>
       <p class="section-subtitle">
-        Telecom and financial data platforms at petabyte scale, spanning analytics engineering,
-        data engineering, and cloud/MLOps.
+        A quick tour of where I’ve been focusing my time—data platforms, analytics, and cloud
+        infrastructure across telecom and finance.
       </p>
 
       <div class="experience-grid">
+        <!-- Prodapt full-time -->
         <article class="exp-card">
           <div class="exp-header">
             <div class="exp-title">Data & Analytics Engineer II · Prodapt (Client: Verizon)</div>
-            <div class="exp-meta">
-              Oct 2023 – Present<span>United States</span>
-            </div>
+            <div class="exp-meta">United States · Oct 2023 – Present</div>
           </div>
-          <div class="exp-tags">
-            <span class="exp-tag">GCP</span>
-            <span class="exp-tag">BigQuery</span>
-            <span class="exp-tag">Airflow</span>
-            <span class="exp-tag">Kafka · Druid</span>
-            <span class="exp-tag">Looker · GA4</span>
-            <span class="exp-tag">GKE · Terraform</span>
-          </div>
+          <p>
+            I work on Verizon’s network and operations data stack—building semantic layers,
+            telemetry pipelines, and observability for internal tools used by network and support
+            teams.
+          </p>
+
+          <div class="exp-section-title">Network Service Portal</div>
           <ul class="exp-list">
-            <li>
-              Led the integration of 60+ Airflow pipelines processing petabyte-scale data across
-              BigQuery and GCS, improving query performance and cutting runtime by 18 percent.
-            </li>
-            <li>
-              Architected curated BigQuery semantic layers and dbt-style models powering GraphQL
-              APIs, Looker dashboards, and ML feature pipelines, unifying 45+ ETL workflows into
-              governed metric foundations and improving KPI trust by ~40 percent.
-            </li>
-            <li>
-              Designed GA4-based product funnels and retention dashboards in Looker, improving
-              event taxonomy and attribution measurement for a ~28 percent uplift in reporting
-              accuracy and self-serve insight generation.
-            </li>
-            <li>
-              Developed real-time ingestion pipelines for 4.5 PB+ of telemetry using Kafka, Druid,
-              and AWS S3 deep storage, delivering sub-second analytics for network health, churn
-              risk, and anomaly detection.
-            </li>
-            <li>
-              Implemented observability with Prometheus, Grafana, and Elasticsearch, including
-              schema validation, freshness checks, and anomaly detection, reducing MTTR by ~70
-              percent across critical data products.
-            </li>
-            <li>
-              Managed GCP data infrastructure with Docker, GKE, Helm, and Terraform; containerized
-              100+ ETL workloads and standardized CI/CD with GitLab and ArgoCD for reliable, repeatable
-              deployments.
-            </li>
+            <li>Modeled network telemetry in BigQuery with curated views and stored procedures.</li>
+            <li>Orchestrated rollups and checks in Airflow for near-real-time health dashboards.</li>
+            <li>Used Druid and MySQL for low-latency slices of device and site performance.</li>
+            <li>Containerized services with Docker on GKE, monitored using Prometheus + Grafana.</li>
+          </ul>
+
+          <div class="exp-section-title">Real Time Tool</div>
+          <ul class="exp-list">
+            <li>Built Kafka → Druid → S3 flows for streaming network events and metrics.</li>
+            <li>Helped maintain Ansible- and ELK-based infrastructure for logs and alerts.</li>
+            <li>Worked with ops to tune retention, indexing, and dashboards for faster triage.</li>
+          </ul>
+
+          <div class="exp-section-title">AIOps & semantic layers</div>
+          <ul class="exp-list">
+            <li>Designed BigQuery semantic layers used by analytics and AIOps pipelines.</li>
+            <li>Curated stored procedures and curation jobs that classify and enrich events.</li>
+            <li>Automated data checks and notifications via Airflow, Datadog, and related tooling.</li>
           </ul>
         </article>
 
+        <!-- Prodapt internship -->
         <article class="exp-card">
           <div class="exp-header">
             <div class="exp-title">Data / Analytics Engineer Intern · Prodapt (Client: Verizon)</div>
-            <div class="exp-meta">
-              May 2022 – Jan 2023<span>United States</span>
-            </div>
+            <div class="exp-meta">United States · May 2022 – Jan 2023</div>
           </div>
-          <div class="exp-tags">
-            <span class="exp-tag">Hive · Spark → BigQuery</span>
-            <span class="exp-tag">Airflow</span>
-            <span class="exp-tag">Python</span>
-            <span class="exp-tag">Druid</span>
-          </div>
+          <p>
+            During my internship I mostly focused on migrations and analytics datasets, plus an early
+            taste of NLP for support tickets.
+          </p>
+
+          <div class="exp-section-title">Migration project</div>
           <ul class="exp-list">
-            <li>
-              Migrated 76 on-prem Hive and Spark jobs to BigQuery with Airflow orchestration,
-              refactoring ETL logic in Python and reducing infrastructure costs by approximately
-              $1M annually.
-            </li>
-            <li>
-              Designed and optimized 40+ distributed Druid and BigQuery models over
-              petabyte-scale datasets using partitioning, indexing, caching, and materialized views,
-              boosting dashboard performance by ~65 percent.
-            </li>
-            <li>
-              Built Python-based ETL pipelines and Flask APIs integrating Teradata, PostgreSQL, and
-              BigQuery to power dashboards with ~33 percent faster processing.
-            </li>
-            <li>
-              Automated data validation and data quality checks via REST APIs and observability
-              metrics, achieving ~90 percent reliability and reducing recovery time by ~35 percent.
-            </li>
+            <li>Helped move Hive/Spark workloads into BigQuery with Airflow orchestration.</li>
+            <li>Cleaned and refactored legacy ETL logic into Python- and SQL-based flows.</li>
+          </ul>
+
+          <div class="exp-section-title">Analytics datasets</div>
+          <ul class="exp-list">
+            <li>Worked with Teradata SQL and PostgreSQL to prepare data for reporting.</li>
+            <li>Built Python ETL scripts and simple APIs to feed internal dashboards.</li>
+          </ul>
+
+          <div class="exp-section-title">NLP ticket classification</div>
+          <ul class="exp-list">
+            <li>Contributed to pipelines that classify support tickets by topic and team.</li>
+            <li>Helped experiment with text features and evaluation to improve routing accuracy.</li>
           </ul>
         </article>
 
+        <!-- Capgemini -->
         <article class="exp-card">
           <div class="exp-header">
             <div class="exp-title">Senior Data / Analytics Engineer · Capgemini (Client: Morgan Stanley)</div>
-            <div class="exp-meta">
-              Sep 2019 – Jul 2021<span>India</span>
-            </div>
+            <div class="exp-meta">India · Sep 2019 – Jul 2021</div>
           </div>
-          <div class="exp-tags">
-            <span class="exp-tag">Informatica</span>
-            <span class="exp-tag">IBM DB2</span>
-            <span class="exp-tag">Dimensional modeling</span>
-            <span class="exp-tag">Tableau</span>
-          </div>
+          <p>
+            At Morgan Stanley, I worked on financial data marts and ETL for market data—lots of
+            Informatica, SQL, and reporting requirements with strong governance.
+          </p>
+
+          <div class="exp-section-title">Data pipelines</div>
           <ul class="exp-list">
-            <li>
-              Engineered and maintained 40+ ETL/ELT pipelines in Informatica, integrating Capital IQ,
-              FactSet, and Bloomberg data into IBM DB2 with lineage and governance controls for
-              regulatory and risk reporting.
-            </li>
-            <li>
-              Modeled analytical data marts with star and snowflake schemas (SCD Types 1–3) to support
-              regulatory compliance, portfolio analytics, and enterprise metadata tracking.
-            </li>
-            <li>
-              Automated CI/CD for SQL and ETL workflows via Git and Jenkins, improving deployment
-              reliability by about 40 percent and shortening release cycles.
-            </li>
-            <li>
-              Partnered with risk, analytics, and data science teams to define KPIs, document data
-              flows, and coordinate upstream/downstream integrations under Agile SDLC.
-            </li>
+            <li>Maintained ETL/ELT jobs in Informatica for Capital IQ, FactSet, and other feeds.</li>
+            <li>Focused on reliability, lineage, and auditability for regulatory workloads.</li>
+          </ul>
+
+          <div class="exp-section-title">Modeling & reporting</div>
+          <ul class="exp-list">
+            <li>Designed star/snowflake models and SCDs for risk and portfolio analytics.</li>
+            <li>Supported downstream SQL and Tableau reports used by business teams.</li>
+          </ul>
+
+          <div class="exp-section-title">Release & collaboration</div>
+          <ul class="exp-list">
+            <li>Used Git + Jenkins for releases, coordinating UAT and production cutovers.</li>
+            <li>Worked with risk, analytics, and tech teams to align requirements and KPIs.</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills">
+    <!-- PROJECTS TAB -->
+    <section id="projects" class="tab-content">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        A mix of coursework, experiments, and portfolio work from GitHub—plus the kind of problems
+        I enjoy solving.
+      </p>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-title">NYC Taxi Insights</div>
+          <div class="project-meta">
+            Python · Data analysis ·
+            <a href="https://github.com/shahsanay25/NYC-Taxi-Insights" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Exploratory analysis of NYC taxi trips to understand demand patterns, fares, and usage.
+            Focused on data cleaning, feature engineering, and storytelling with visualizations.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Credit Risk Assessment Model</div>
+          <div class="project-meta">
+            Jupyter Notebook · ML ·
+            <a href="https://github.com/shahsanay25/Credit-Risk-Assessment-Model" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Built a model to estimate default risk for credit card clients using historical payment
+            behavior. Played with feature selection, model comparison, and metrics for imbalanced data.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Bank Term Deposit Subscription Classifier</div>
+          <div class="project-meta">
+            Jupyter Notebook · Classification ·
+            <a href="https://github.com/shahsanay25/Bank-Term-Deposit-Subscription-Classifier" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Classification model to predict which customers are likely to subscribe to a term deposit
+            based on demographics and campaign interactions from a Portuguese bank dataset.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Web Traffic on E-commerce Platform</div>
+          <div class="project-meta">
+            Analytics ·
+            <a href="https://github.com/shahsanay25/Web-Traffic-on-E-commerce-Platform" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Analysis of web traffic and product performance for an e-commerce setting, focusing on
+            time-series patterns, user journeys, and category-level behavior.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Hospital Management System</div>
+          <div class="project-meta">
+            SQL · T-SQL ·
+            <a href="https://github.com/shahsanay25/Hospital-Management-System" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Schema and queries for managing patients, appointments, and resources in a hospital
+            environment, with an emphasis on clean relational design and reporting queries.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS TAB -->
+    <section id="skills" class="tab-content">
       <h2 class="section-title">Skills</h2>
       <p class="section-subtitle">
-        Strong in SQL, cloud-native data engineering, analytics modeling, and operational reliability,
-        with practical ML/AI and DevOps experience.
+        The tools and concepts I’m most comfortable with day-to-day.
       </p>
 
       <div class="skills-grid">
@@ -969,114 +1065,23 @@
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2 class="section-title">Selected projects</h2>
-      <p class="section-subtitle">
-        A mix of production data platforms and portfolio projects from GitHub.
-      </p>
-
-      <div class="projects-grid">
-        <article class="project-card">
-          <div class="project-title">Verizon real-time telemetry platform</div>
-          <div class="project-meta">Prodapt · GCP · Kafka · Druid · BigQuery · Looker</div>
-          <p class="project-desc">
-            Built streaming pipelines ingesting 4.5 PB+ of wireless and wireline telemetry into
-            Kafka, Druid, and BigQuery. Designed rollups powering real-time network health and
-            device availability dashboards and anomaly detection for millions of enterprise nodes.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-title">GA4 product funnel and attribution modeling</div>
-          <div class="project-meta">Prodapt · GA4 · BigQuery · Looker</div>
-          <p class="project-desc">
-            Modeled GA4 event data into acquisition → activation → retention funnels, standardized
-            UTM and event taxonomy, and delivered Looker dashboards that improved marketing attribution
-            accuracy by approximately 28 percent and supported experimentation frameworks.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-title">NYC Taxi Insights</div>
-          <div class="project-meta">
-            GitHub · Python · Data analysis
-            &mdash;
-            <a href="https://github.com/shahsanay25/NYC-Taxi-Insights" target="_blank" rel="noopener">
-              View on GitHub
-            </a>
-          </div>
-          <p class="project-desc">
-            Analyzed trip and fare data for industry optimization, exploring spatial and temporal
-            patterns in NYC taxi rides to understand demand, pricing, and utilization trends.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-title">Credit Risk Assessment Model</div>
-          <div class="project-meta">
-            GitHub · Jupyter Notebook · Machine learning
-            &mdash;
-            <a href="https://github.com/shahsanay25/Credit-Risk-Assessment-Model" target="_blank" rel="noopener">
-              View on GitHub
-            </a>
-          </div>
-          <p class="project-desc">
-            Developed and evaluated models for credit risk prediction, focusing on feature
-            engineering and imbalanced classification metrics to identify high-risk borrowers
-            using historical loan behavior.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-title">Web Traffic on E-commerce Platform</div>
-          <div class="project-meta">
-            GitHub · Analytics
-            &mdash;
-            <a href="https://github.com/shahsanay25/Web-Traffic-on-E-commerce-Platform" target="_blank" rel="noopener">
-              View on GitHub
-            </a>
-          </div>
-          <p class="project-desc">
-            Analyzed website traffic and sales trends for an e-commerce platform to understand
-            product performance, seasonal patterns, and customer behavior across lifestyle and
-            fashion segments.
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-title">Hospital Management System</div>
-          <div class="project-meta">
-            GitHub · SQL · T-SQL
-            &mdash;
-            <a href="https://github.com/shahsanay25/Hospital-Management-System" target="_blank" rel="noopener">
-              View on GitHub
-            </a>
-          </div>
-          <p class="project-desc">
-            Designed and implemented a SQL-based system to manage patients, treatments, and resource
-            utilization across a hospital network, supporting operational reporting and analytics.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Education & Certifications -->
-    <section id="education">
+    <!-- EDUCATION TAB -->
+    <section id="education" class="tab-content">
       <h2 class="section-title">Education & certifications</h2>
 
       <div class="edu-grid">
         <div class="edu-card">
           <div class="edu-title">Education</div>
-          <div class="edu-line">
-            <strong>Master of Science, Data Analytics Engineering</strong> · Northeastern University · Boston, MA
-          </div>
-          <div class="edu-line">Graduated Aug 2023 · GPA 3.86 / 4.0</div>
-          <br />
-          <div class="edu-line">
-            <strong>Bachelor of Science, Electronics and Telecommunications</strong> · University of Mumbai · India
-          </div>
-          <div class="edu-line">Graduated Jul 2019 · GPA 3.36 / 4.0</div>
+          <p>
+            <strong>Master of Science, Data Analytics Engineering</strong><br />
+            Northeastern University · Boston, MA · United States<br />
+            Graduated Aug 2023 · GPA 3.86 / 4.0
+          </p>
+          <p>
+            <strong>Bachelor of Science, Electronics and Telecommunications</strong><br />
+            University of Mumbai · Mumbai · India<br />
+            Graduated Jul 2019 · GPA 3.36 / 4.0
+          </p>
         </div>
 
         <div class="edu-card">
@@ -1089,11 +1094,12 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
+    <!-- CONTACT TAB -->
+    <section id="contact" class="tab-content">
       <h2 class="section-title">Contact</h2>
       <p class="section-subtitle">
-        Interested in data platform, analytics engineering, or cloud/MLOps roles. Feel free to reach out.
+        Interested in data platform, analytics engineering, or cloud/MLOps roles—or just want to
+        talk data? Feel free to reach out.
       </p>
 
       <div class="contact-card">
@@ -1119,7 +1125,7 @@
           <a class="btn btn-primary" href="mailto:shahsanay25@gmail.com?subject=Opportunity%20for%20Data%20%26%20Analytics%20Engineer">
             Email me
           </a>
-          <a class="btn btn-ghost" href="#about">Back to top</a>
+          <button class="btn btn-ghost" data-tab="about">Back to About</button>
         </div>
       </div>
     </section>
@@ -1130,7 +1136,37 @@
   </footer>
 
   <script>
+    // Set year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple tab navigation
+    const tabLinks = document.querySelectorAll("[data-tab]");
+    const sections = document.querySelectorAll(".tab-content");
+
+    function activateTab(name) {
+      sections.forEach((sec) => {
+        sec.classList.toggle("active", sec.id === name);
+      });
+
+      // update nav link active state
+      const navLinks = document.querySelectorAll("nav a[data-tab]");
+      navLinks.forEach((lnk) => {
+        lnk.classList.toggle("active", lnk.getAttribute("data-tab") === name);
+      });
+
+      // scroll to top of main content on tab change
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const tabName = link.getAttribute("data-tab");
+        if (tabName) {
+          activateTab(tabName);
+        }
+      });
+    });
   </script>
 </body>
 </html>
