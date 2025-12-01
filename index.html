@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Portfolio of Sanay Shah, GCP-certified Data & Analytics Engineer specializing in BigQuery, Airflow, Looker/GA4, Kafka, Docker, MLOps, and AI-powered automation."
+    content="Portfolio of Sanay Shah, GCP-certified Data & Analytics Engineer working on telecom, financial, and customer analytics using BigQuery, Airflow, Looker/GA4, Kafka, Docker, and MLOps."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
@@ -215,7 +215,7 @@
     }
 
     .hero-card p {
-      margin: 0.7rem 0 1.1rem;
+      margin: 0.45rem 0 0.9rem;
       color: var(--muted);
       font-size: 0.95rem;
     }
@@ -315,12 +315,12 @@
     }
 
     .profile-pic {
-      width: 120px;
-      height: 120px;
+      width: 170px;
+      height: 170px;
       border-radius: 999px;
       object-fit: cover;
       border: 2px solid rgba(148, 163, 184, 0.7);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.9);
     }
 
     .profile-name {
@@ -661,23 +661,31 @@
             <span>GCP Certified · Data & Analytics Engineer</span>
           </div>
           <div class="hero-title-line">
-            BigQuery · Airflow · Looker/GA4 · Kafka · Docker · MLOps
+            Telecom, financial and customer analytics · BigQuery · Airflow · Looker/GA4 · Kafka · Docker · MLOps
           </div>
           <h1>Hi, I’m <span>Sanay</span>.</h1>
           <p>
-            I’m a Data & Analytics Engineer with 5+ years of experience building BigQuery data
-            models, Airflow ELT pipelines, and analytics layers on top of large-scale
-            telemetry and business data. I enjoy turning messy event streams into clean,
-            governed datasets that product, GTM, and ops teams can trust.
+            I am a GCP certified data and analytics engineer who enjoys building practical systems
+            that turn raw data into decisions. Over the last five years I have worked across telecom
+            and financial domains with exposure to GCP and AWS, large warehouse migrations and both
+            batch and streaming workloads. I am comfortable with relational and NoSQL stores and I
+            like designing models and pipelines that stay understandable even as data volume grows.
           </p>
           <p>
-            On the engineering side I work with Docker, Kubernetes, CI/CD and observability stacks,
-            and I use ML/AI in practical ways—like ticket classification, anomaly detection, and
-            automated health checks—to reduce manual work and speed up decisions.
+            Most of my work sits around BigQuery and Airflow, but I also use dbt style modeling,
+            Kafka and Druid for streaming and GCP services such as Pub/Sub, Dataflow and Dataproc
+            for large scale processing. I work with Python, PySpark, Docker, Kubernetes and CI/CD
+            so data workloads can be deployed, rolled back and scaled with confidence.
+          </p>
+          <p>
+            I care about observability, security and data quality, so I usually pair pipelines with
+            monitoring, validation and clear ownership instead of just moving data. That includes
+            Grafana and ELK dashboards, Python based checks, Slack and email alerts, and controls
+            such as IAM, LDAP based access and encrypted keys for governance.
           </p>
 
           <div class="hero-meta">
-            <span>📍 United States · Open to remote / hybrid</span>
+            <span>📍 United States · Open to remote or hybrid roles</span>
             <span class="hero-meta-badge">Google Cloud Professional Data Engineer</span>
           </div>
 
@@ -712,8 +720,8 @@
 
         <div class="hero-side-card">
           <div class="profile-wrapper">
-            <!-- IMPORTANT: save your LinkedIn profile image as profile.jpg next to this file -->
-            <img src="profile.jpg" alt="Sanay Shah" class="profile-pic" />
+            <!-- IMPORTANT: save your photo as profile.jpeg next to this file -->
+            <img src="profile.jpeg" alt="Sanay Shah" class="profile-pic" />
             <div class="profile-name">Sanay Shah</div>
             <div class="profile-role">Data & Analytics Engineer @ Prodapt</div>
           </div>
@@ -722,19 +730,19 @@
           <div class="hero-orbit-grid">
             <div class="hero-orbit-item">
               <div class="hero-orbit-label">Domains</div>
-              <div class="hero-orbit-strong">Telecom · Financial analytics</div>
+              <div class="hero-orbit-strong">Telecom, financial data, customer analytics</div>
             </div>
             <div class="hero-orbit-item">
-              <div class="hero-orbit-label">Platform work</div>
-              <div class="hero-orbit-strong">Telemetry, AIOps, data products</div>
+              <div class="hero-orbit-label">Scale</div>
+              <div class="hero-orbit-strong">5 PB+ telemetry, 4.5 PB+ streaming data</div>
             </div>
             <div class="hero-orbit-item">
-              <div class="hero-orbit-label">Daily tools</div>
-              <div class="hero-orbit-strong">BigQuery, Airflow, Kafka, Druid</div>
+              <div class="hero-orbit-label">Impact</div>
+              <div class="hero-orbit-strong">18% faster pipelines, ~$2.6M+ cost savings</div>
             </div>
             <div class="hero-orbit-item">
-              <div class="hero-orbit-label">Beyond data</div>
-              <div class="hero-orbit-strong">Kubernetes, CI/CD, observability, AI</div>
+              <div class="hero-orbit-label">Toolbox</div>
+              <div class="hero-orbit-strong">BigQuery, Airflow, Kafka, Druid, GKE, GA4</div>
             </div>
           </div>
         </div>
@@ -743,54 +751,74 @@
       <section>
         <h2 class="section-title">What I do</h2>
         <p class="section-subtitle">
-          I like sitting at the intersection of data engineering, analytics, and cloud
-          infrastructure—close to the business problems but deep enough in the stack to fix them
-          properly.
+          I sit at the intersection of data engineering, analytics, ML and cloud infrastructure so
+          teams can make decisions without worrying about pipelines or schemas.
         </p>
 
         <div class="tracks-grid">
+          <!-- Card 1: Data engineering -->
           <div class="track-card">
-            <div class="track-title">Data platforms & pipelines</div>
-            <div class="track-tagline">BigQuery · Airflow · Kafka · Druid</div>
+            <div class="track-title">Data engineering and architecture</div>
+            <div class="track-tagline">BigQuery · Airflow · Pub/Sub · Dataflow · Dataproc</div>
             <div class="track-tags">
-              <span class="tag">ETL/ELT</span>
-              <span class="tag">Semantic modeling</span>
-              <span class="tag">KPI governance</span>
-              <span class="tag">Data quality</span>
+              <span class="tag">ETL and ELT</span>
+              <span class="tag">Petabyte scale</span>
+              <span class="tag">Semantic layers</span>
+              <span class="tag">dbt style modeling</span>
+              <span class="tag">Avro and Parquet</span>
             </div>
             <p class="track-footer">
-              Design and maintain pipelines and warehouse schemas that keep telemetry and business
-              data fresh, modeled, and reliable for downstream users.
+              Design and run data platforms that handle petabyte scale batch and streaming
+              workloads on GCP and AWS. This includes BigQuery models, Airflow pipelines, Kafka and
+              Druid streams and Dataflow or Dataproc jobs that keep data fresh for finance,
+              customer and operational analytics. Work has involved tuning more than 60 pipelines
+              for performance, migrating 70+ Hive and Spark jobs to BigQuery and cleaning up
+              roughly 600 TB of legacy storage.
             </p>
           </div>
 
+          <!-- Card 2: Analytics / ML-ready -->
           <div class="track-card">
-            <div class="track-title">Analytics & product insights</div>
-            <div class="track-tagline">Looker · GA4 · Experimentation</div>
+            <div class="track-title">Analytics and ML ready data</div>
+            <div class="track-tagline">Looker · GA4 · Tableau · ML features</div>
             <div class="track-tags">
-              <span class="tag">Funnels & retention</span>
+              <span class="tag">Customer insights</span>
+              <span class="tag">Financial reporting</span>
+              <span class="tag">Funnels and retention</span>
               <span class="tag">Attribution</span>
-              <span class="tag">Self-serve dashboards</span>
-              <span class="tag">A/B testing datasets</span>
+              <span class="tag">Feature datasets</span>
             </div>
             <p class="track-footer">
-              Model GA4 and other event sources into clean views so PMs, marketing, and ops teams
-              can answer their own questions without fighting the data.
+              Model GA4 events, telemetry and business data into analytics ready tables for
+              customer, financial and operational use cases. Deliver dashboards in Looker, Tableau
+              and Power BI along with consistent KPIs and A/B testing datasets. Partner with ML
+              teams to create feature curated datasets for churn prediction, anomaly detection and
+              ticket classification. This work has helped improve dashboard performance by around
+              65 percent and attribution accuracy by roughly 28 percent while reducing ad hoc data
+              work.
             </p>
           </div>
 
+          <!-- Card 3: DevOps / security / quality -->
           <div class="track-card">
-            <div class="track-title">ML, AI & DevOps</div>
-            <div class="track-tagline">Vertex AI · Docker · GKE · CI/CD</div>
+            <div class="track-title">DevOps, governance and reliability</div>
+            <div class="track-tagline">Docker · GKE · CI/CD · Grafana · ELK</div>
             <div class="track-tags">
-              <span class="tag">NLP ticket classification</span>
-              <span class="tag">Anomaly detection</span>
-              <span class="tag">GitLab CI/CD</span>
-              <span class="tag">Blue–green deploys</span>
+              <span class="tag">Git based CI/CD</span>
+              <span class="tag">LDAP and IAM</span>
+              <span class="tag">Encrypted keys</span>
+              <span class="tag">Data quality checks</span>
+              <span class="tag">Alerts and SLOs</span>
             </div>
             <p class="track-footer">
-              Use ML and automation to handle repetitive triage and monitoring, and ship data
-              workloads with Docker, Kubernetes, and GitOps-style pipelines.
+              Containerize and deploy workloads with Docker and Kubernetes on GKE, using GitLab and
+              Jenkins for CI/CD so changes are tested and reversible. Enforce governance with IAM,
+              LDAP based access control, key encryption and TLS. Build data quality and
+              observability into pipelines through schema checks, anomaly detection and SLA
+              tracking in Prometheus, Grafana, Datadog and ELK, with Slack and email alerts to
+              bring the right people in quickly. These practices have reduced mean time to
+              recovery by about 70 percent and supported resource optimizations worth more than
+              1.6 million dollars per year.
             </p>
           </div>
         </div>
@@ -801,8 +829,8 @@
     <section id="experience" class="tab-content">
       <h2 class="section-title">Experience</h2>
       <p class="section-subtitle">
-        A quick tour of where I’ve been focusing my time—data platforms, analytics, and cloud
-        infrastructure across telecom and finance.
+        Work across telecom and finance, covering network operations, customer analytics and
+        financial reporting platforms.
       </p>
 
       <div class="experience-grid">
@@ -813,31 +841,60 @@
             <div class="exp-meta">United States · Oct 2023 – Present</div>
           </div>
           <p>
-            I work on Verizon’s network and operations data stack—building semantic layers,
-            telemetry pipelines, and observability for internal tools used by network and support
-            teams.
+            I work on internal data platforms that power network, customer and operations
+            analytics for a large telecom, with a focus on BigQuery, Airflow, Kafka, Druid and
+            GKE based workloads.
           </p>
 
           <div class="exp-section-title">Network Service Portal</div>
           <ul class="exp-list">
-            <li>Modeled network telemetry in BigQuery with curated views and stored procedures.</li>
-            <li>Orchestrated rollups and checks in Airflow for near-real-time health dashboards.</li>
-            <li>Used Druid and MySQL for low-latency slices of device and site performance.</li>
-            <li>Containerized services with Docker on GKE, monitored using Prometheus + Grafana.</li>
+            <li>
+              Led the integration of 60+ ETL pipelines across GCP
+              (Airflow, BigQuery, GCS, Cloud SQL), improving performance and cutting runtime by
+              about 18 percent for core reporting jobs.
+            </li>
+            <li>
+              Cleaned up and tiered legacy GCS data, freeing roughly 600 TB of storage by
+              standardizing Avro and Parquet usage and improving retention logic.
+            </li>
+            <li>
+              Optimized integration code and query patterns against BigQuery and MySQL to improve
+              data freshness and reduce compute cost for network and customer analytics.
+            </li>
+            <li>
+              Ran a GKE blue green deployment proof of concept and implemented a
+              middle manager less pod approach for Druid style workloads, contributing to an
+              estimated annual saving of around 1.6 million dollars.
+            </li>
           </ul>
 
           <div class="exp-section-title">Real Time Tool</div>
           <ul class="exp-list">
-            <li>Built Kafka → Druid → S3 flows for streaming network events and metrics.</li>
-            <li>Helped maintain Ansible- and ELK-based infrastructure for logs and alerts.</li>
-            <li>Worked with ops to tune retention, indexing, and dashboards for faster triage.</li>
+            <li>
+              Supported Kafka to Druid to S3 flows for live network and customer signals,
+              tuning query patterns, partition strategies and aggregation logic to cut latency
+              for operations views such as alerting and drill downs.
+            </li>
+            <li>
+              Helped build Kafka parsers and data validation checks so streaming data landed in
+              a clean, consistent shape for downstream analytics and troubleshooting.
+            </li>
+            <li>
+              Automated health checks and monitors using metrics and logs, reducing manual
+              investigation time for data issues and improving recovery time.
+            </li>
           </ul>
 
-          <div class="exp-section-title">AIOps & semantic layers</div>
+          <div class="exp-section-title">AIOps and semantic layers</div>
           <ul class="exp-list">
-            <li>Designed BigQuery semantic layers used by analytics and AIOps pipelines.</li>
-            <li>Curated stored procedures and curation jobs that classify and enrich events.</li>
-            <li>Automated data checks and notifications via Airflow, Datadog, and related tooling.</li>
+            <li>
+              Designed BigQuery semantic layers with curated views, stored procedures and
+              classifications that support AIOps use cases and customer experience analytics.
+            </li>
+            <li>
+              Used Airflow to schedule curation jobs and quality checks, and integrated with
+              Datadog and related tools to track freshness, volume and data anomalies.
+            </li>
           </ul>
         </article>
 
@@ -848,26 +905,45 @@
             <div class="exp-meta">United States · May 2022 – Jan 2023</div>
           </div>
           <p>
-            During my internship I mostly focused on migrations and analytics datasets, plus an early
-            taste of NLP for support tickets.
+            During my internship I contributed to migration, analytics and early NLP pipelines
+            for network and customer support use cases.
           </p>
 
           <div class="exp-section-title">Migration project</div>
           <ul class="exp-list">
-            <li>Helped move Hive/Spark workloads into BigQuery with Airflow orchestration.</li>
-            <li>Cleaned and refactored legacy ETL logic into Python- and SQL-based flows.</li>
+            <li>
+              Helped migrate more than 70 Hive and Spark jobs into BigQuery and Airflow based flows,
+              refactoring ETL logic in Python and SQL and supporting an estimated one million
+              dollars in annual infrastructure savings.
+            </li>
+            <li>
+              Improved partitioning and indexing strategies in Druid and BigQuery, leading to
+              roughly 65 percent faster dashboards for operational analytics.
+            </li>
           </ul>
 
           <div class="exp-section-title">Analytics datasets</div>
           <ul class="exp-list">
-            <li>Worked with Teradata SQL and PostgreSQL to prepare data for reporting.</li>
-            <li>Built Python ETL scripts and simple APIs to feed internal dashboards.</li>
+            <li>
+              Worked with Teradata SQL and PostgreSQL to build cleaned and joined datasets for
+              reporting across operations, customer and financial views.
+            </li>
+            <li>
+              Built small Python ETL scripts and Flask style APIs that delivered data into
+              business dashboards, improving processing time by around 30 percent in some flows.
+            </li>
           </ul>
 
           <div class="exp-section-title">NLP ticket classification</div>
           <ul class="exp-list">
-            <li>Contributed to pipelines that classify support tickets by topic and team.</li>
-            <li>Helped experiment with text features and evaluation to improve routing accuracy.</li>
+            <li>
+              Contributed to pipelines that classify support tickets into topics and categories,
+              using text features to help route work to the right teams and reduce manual triage.
+            </li>
+            <li>
+              Helped improve evaluation and monitoring so ticket classification models could be
+              trusted in production.
+            </li>
           </ul>
         </article>
 
@@ -878,26 +954,44 @@
             <div class="exp-meta">India · Sep 2019 – Jul 2021</div>
           </div>
           <p>
-            At Morgan Stanley, I worked on financial data marts and ETL for market data—lots of
-            Informatica, SQL, and reporting requirements with strong governance.
+            At a large financial client I worked on data marts and ETL pipelines that supported
+            regulatory, risk and portfolio reporting, mostly using Informatica and SQL.
           </p>
 
           <div class="exp-section-title">Data pipelines</div>
           <ul class="exp-list">
-            <li>Maintained ETL/ELT jobs in Informatica for Capital IQ, FactSet, and other feeds.</li>
-            <li>Focused on reliability, lineage, and auditability for regulatory workloads.</li>
+            <li>
+              Maintained more than 40 ETL and ELT pipelines in Informatica to bring in Capital IQ,
+              FactSet and other market data into IBM DB2 with lineage and governance in place.
+            </li>
+            <li>
+              Focused on reliability and audit readiness for regulatory and financial reporting
+              workflows.
+            </li>
           </ul>
 
-          <div class="exp-section-title">Modeling & reporting</div>
+          <div class="exp-section-title">Modeling and reporting</div>
           <ul class="exp-list">
-            <li>Designed star/snowflake models and SCDs for risk and portfolio analytics.</li>
-            <li>Supported downstream SQL and Tableau reports used by business teams.</li>
+            <li>
+              Designed star and snowflake models with slowly changing dimensions to support risk,
+              portfolio and compliance analytics across different business teams.
+            </li>
+            <li>
+              Supported SQL and Tableau reporting used by finance and risk users, helping improve
+              data freshness and reporting cycles.
+            </li>
           </ul>
 
-          <div class="exp-section-title">Release & collaboration</div>
+          <div class="exp-section-title">Release and collaboration</div>
           <ul class="exp-list">
-            <li>Used Git + Jenkins for releases, coordinating UAT and production cutovers.</li>
-            <li>Worked with risk, analytics, and tech teams to align requirements and KPIs.</li>
+            <li>
+              Used Git and Jenkins for ETL release cycles, helping reduce deployment issues by
+              around 40 percent and keeping deployments predictable.
+            </li>
+            <li>
+              Partnered with risk, analytics and technology teams to align requirements, KPIs
+              and data flows under an Agile style delivery model.
+            </li>
           </ul>
         </article>
       </div>
@@ -907,11 +1001,25 @@
     <section id="projects" class="tab-content">
       <h2 class="section-title">Projects</h2>
       <p class="section-subtitle">
-        A mix of coursework, experiments, and portfolio work from GitHub—plus the kind of problems
-        I enjoy solving.
+        A mix of portfolio projects and examples of the kind of customer and business analytics
+        work I enjoy.
       </p>
 
       <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-title">Website journey analytics and GA4 funnels</div>
+          <div class="project-meta">
+            GA4 · BigQuery · Looker · Customer analytics
+          </div>
+          <p>
+            Modeled GA4 event streams for a large telecom website into clean acquisition to
+            activation to retention funnels. Built path and cohort views in BigQuery and Looker so
+            product and marketing teams could track behavior, dropped steps and conversion impact.
+            Work supported improved attribution accuracy and faster iteration on campaigns and
+            on site experiences.
+          </p>
+        </article>
+
         <article class="project-card">
           <div class="project-title">NYC Taxi Insights</div>
           <div class="project-meta">
@@ -921,22 +1029,24 @@
             </a>
           </div>
           <p>
-            Exploratory analysis of NYC taxi trips to understand demand patterns, fares, and usage.
-            Focused on data cleaning, feature engineering, and storytelling with visualizations.
+            Exploratory analysis of NYC taxi trips to understand demand patterns, fares and
+            usage. Focused on cleaning data, building features and summarizing behavior across
+            time, locations and passenger segments.
           </p>
         </article>
 
         <article class="project-card">
           <div class="project-title">Credit Risk Assessment Model</div>
           <div class="project-meta">
-            Jupyter Notebook · ML ·
+            Jupyter Notebook · Machine learning ·
             <a href="https://github.com/shahsanay25/Credit-Risk-Assessment-Model" target="_blank" rel="noopener">
               GitHub
             </a>
           </div>
           <p>
-            Built a model to estimate default risk for credit card clients using historical payment
-            behavior. Played with feature selection, model comparison, and metrics for imbalanced data.
+            Built and compared models for credit risk prediction using historical payment and
+            behavior data. Worked on feature selection, handling imbalanced data and choosing
+            metrics that aligned with business risk.
           </p>
         </article>
 
@@ -949,8 +1059,9 @@
             </a>
           </div>
           <p>
-            Classification model to predict which customers are likely to subscribe to a term deposit
-            based on demographics and campaign interactions from a Portuguese bank dataset.
+            Classification model to estimate which customers are likely to subscribe to a term
+            deposit, using demographic and campaign data. Focused on pipeline structure and clear
+            evaluation rather than just chasing accuracy.
           </p>
         </article>
 
@@ -963,8 +1074,9 @@
             </a>
           </div>
           <p>
-            Analysis of web traffic and product performance for an e-commerce setting, focusing on
-            time-series patterns, user journeys, and category-level behavior.
+            Analysis of website traffic and product performance for an ecommerce setting,
+            focusing on temporal patterns, category performance and simple journey based
+            insights.
           </p>
         </article>
 
@@ -977,8 +1089,8 @@
             </a>
           </div>
           <p>
-            Schema and queries for managing patients, appointments, and resources in a hospital
-            environment, with an emphasis on clean relational design and reporting queries.
+            Schema and queries for managing patients, appointments and resources in a hospital
+            environment, with an emphasis on relational design and operational reporting.
           </p>
         </article>
       </div>
@@ -988,37 +1100,37 @@
     <section id="skills" class="tab-content">
       <h2 class="section-title">Skills</h2>
       <p class="section-subtitle">
-        The tools and concepts I’m most comfortable with day-to-day.
+        The tools, platforms and concepts I use most often.
       </p>
 
       <div class="skills-grid">
         <div class="skill-card">
           <div class="skill-title">Core strengths</div>
           <div class="skill-body">
-            <span>ELT architecture</span>
-            <span>Semantic & KPI modeling</span>
-            <span>dbt-style transformations</span>
-            <span>SQL optimization</span>
+            <span>ETL and ELT architecture</span>
+            <span>Semantic and KPI modeling</span>
+            <span>dbt style transformations</span>
+            <span>SQL performance tuning</span>
             <span>Streaming telemetry pipelines</span>
-            <span>Data quality & observability</span>
+            <span>Data quality and observability</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-title">Cloud & databases</div>
+          <div class="skill-title">Cloud and databases</div>
           <div class="skill-body">
-            <span>GCP: BigQuery, GCS, Pub/Sub, Dataflow, GKE, Vertex AI, Data Catalog</span>
+            <span>GCP: BigQuery, GCS, Pub/Sub, Dataflow, GKE, Vertex AI, Data Catalog, Dataproc</span>
             <span>AWS: Redshift, S3, Glue</span>
             <span>MySQL, PostgreSQL, Teradata, IBM DB2</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-title">Streaming & data platforms</div>
+          <div class="skill-title">Streaming and data platforms</div>
           <div class="skill-body">
             <span>Apache Kafka</span>
             <span>Apache Druid</span>
-            <span>Apache Spark</span>
+            <span>Apache Spark and PySpark</span>
             <span>Hadoop</span>
             <span>Snowflake</span>
             <span>NoSQL: Cassandra</span>
@@ -1026,48 +1138,58 @@
         </div>
 
         <div class="skill-card">
-          <div class="skill-title">Analytics & BI</div>
+          <div class="skill-title">Analytics and BI</div>
           <div class="skill-body">
-            <span>Looker (LookML, semantic layers)</span>
+            <span>Looker and LookML</span>
             <span>Google Analytics 4 (funnels, retention, attribution)</span>
             <span>Tableau</span>
             <span>Power BI</span>
-            <span>A/B testing datasets</span>
+            <span>Experimentation datasets</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-title">MLOps, DevOps & tooling</div>
+          <div class="skill-title">MLOps, DevOps and tooling</div>
           <div class="skill-body">
-            <span>Python · SQL · Shell</span>
+            <span>Python, SQL, Shell</span>
             <span>Airflow</span>
             <span>Docker</span>
-            <span>Kubernetes · GKE</span>
-            <span>GitLab CI/CD, Jenkins, ArgoCD</span>
+            <span>Kubernetes and GKE</span>
+            <span>Git, GitLab CI/CD, Jenkins, ArgoCD</span>
             <span>Terraform, Ansible</span>
           </div>
         </div>
 
         <div class="skill-card">
-          <div class="skill-title">AI & automation in practice</div>
+          <div class="skill-title">AI, automation and security</div>
           <div class="skill-body">
-            <span>NLP-based ticket classification and routing</span>
+            <span>NLP ticket classification and routing</span>
             <span>Anomaly detection on streaming telemetry</span>
-            <span>ML feature pipelines with Vertex AI / BigQuery ML</span>
-            <span>Automated health checks, alerts, and SLO monitoring</span>
+            <span>ML feature pipelines with Vertex AI and BigQuery ML</span>
+            <span>Prometheus, Grafana, Datadog and ELK monitoring</span>
+            <span>Slack and email alerting for pipeline health</span>
+            <span>IAM, LDAP based access and encrypted keys</span>
           </div>
         </div>
       </div>
 
       <div class="resume-badges">
-        <div class="resume-badge">Google Cloud Certified Professional Data Engineer</div>
-        <div class="resume-badge">Oracle SQL Developer Certified</div>
+        <!-- Replace # with your certificate verification URLs -->
+        <a class="resume-badge" href="#" target="_blank" rel="noopener">
+          Google Cloud Certified Professional Data Engineer
+        </a>
+        <a class="resume-badge" href="#" target="_blank" rel="noopener">
+          Google Cloud Certified Associate (GCP)
+        </a>
+        <a class="resume-badge" href="#" target="_blank" rel="noopener">
+          Oracle SQL Developer Certified
+        </a>
       </div>
     </section>
 
     <!-- EDUCATION TAB -->
     <section id="education" class="tab-content">
-      <h2 class="section-title">Education & certifications</h2>
+      <h2 class="section-title">Education and certifications</h2>
 
       <div class="edu-grid">
         <div class="edu-card">
@@ -1087,8 +1209,21 @@
         <div class="edu-card">
           <div class="edu-title">Certifications</div>
           <ul class="cert-list">
-            <li>Google Cloud Certified Professional Data Engineer</li>
-            <li>Oracle SQL Developer Certified</li>
+            <li>
+              <a href="#" target="_blank" rel="noopener">
+                Google Cloud Certified Professional Data Engineer
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener">
+                Google Cloud Certified Associate (GCP)
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener">
+                Oracle SQL Developer Certified
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -1098,8 +1233,8 @@
     <section id="contact" class="tab-content">
       <h2 class="section-title">Contact</h2>
       <p class="section-subtitle">
-        Interested in data platform, analytics engineering, or cloud/MLOps roles—or just want to
-        talk data? Feel free to reach out.
+        Open to data platform, analytics engineering and cloud or MLOps roles. Happy to connect
+        about data problems and platforms in general too.
       </p>
 
       <div class="contact-card">
@@ -1154,7 +1289,6 @@
         lnk.classList.toggle("active", lnk.getAttribute("data-tab") === name);
       });
 
-      // scroll to top of main content on tab change
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
