@@ -184,7 +184,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.95;
+      opacity: 0.9;
     }
 
     .hero-overlay {
@@ -248,25 +248,43 @@
       filter: brightness(1.05);
     }
 
+    /* Mobile hero tweaks to avoid overlapping text on image */
+
     @media (max-width: 640px) {
       .hero {
         align-items: center;
+        min-height: 80vh;
+      }
+
+      .hero-bg {
+        opacity: 0.22; /* much softer image so text stands out */
       }
 
       .hero-content {
-        padding: 2.5rem 1rem 2.5rem;
+        padding: 1.8rem 1.1rem 2.2rem;
+        margin: 0 1rem;
+        background: rgba(255, 255, 255, 0.94);
+        border-radius: 18px;
+        box-shadow: var(--shadow-soft);
       }
 
       .hero-name {
-        font-size: 2.4rem;
+        font-size: 2rem;
       }
 
       .hero-role-line {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
       }
 
       .hero-sub {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin-bottom: 1.1rem;
+      }
+
+      .btn-primary {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
       }
     }
 
@@ -524,46 +542,6 @@
 
     .exp-list li {
       margin-bottom: 0.22rem;
-    }
-
-    /* Projects (kept if you later want tab) */
-
-    .projects-section {
-      background: var(--bg-soft);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    @media (max-width: 880px) {
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .project-card {
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1px solid var(--border-subtle);
-      padding: 1rem 1.1rem 0.9rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .project-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-      color: var(--text-main);
-    }
-
-    .project-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.35rem;
     }
 
     /* Skills */
