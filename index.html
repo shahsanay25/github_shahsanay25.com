@@ -248,7 +248,7 @@
       filter: brightness(1.05);
     }
 
-    /* Mobile hero tweaks to avoid overlapping text on image */
+    /* Mobile hero tweaks */
 
     @media (max-width: 640px) {
       .hero {
@@ -257,7 +257,7 @@
       }
 
       .hero-bg {
-        opacity: 0.22; /* much softer image so text stands out */
+        opacity: 0.22;
       }
 
       .hero-content {
@@ -288,7 +288,7 @@
       }
     }
 
-    /* Generic section / tabs */
+    /* Generic section */
 
     section {
       padding: 3.2rem 1.0rem;
@@ -317,15 +317,7 @@
       margin-bottom: 1.6rem;
     }
 
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    /* About card (A4 style) */
+    /* About card */
 
     .about-wrapper {
       background: var(--bg-soft);
@@ -691,7 +683,7 @@
       <nav>
         <ul>
           <li><a data-tab="about" class="active">About me</a></li>
-          <li><a data-tab="help">How I can help</a></li>
+          <li><a data-tab="help">How Can I Help?</a></li>
           <li><a data-tab="experience">Experience</a></li>
           <li><a data-tab="skills">Skills</a></li>
           <li><a data-tab="certifications">Certifications</a></li>
@@ -725,8 +717,8 @@
       </div>
     </section>
 
-    <!-- ABOUT TAB -->
-    <section id="about" class="tab-content about-wrapper active">
+    <!-- ABOUT (single page, always visible) -->
+    <section id="about" class="about-wrapper">
       <div class="section-inner">
         <h2 class="section-title">About me</h2>
         <p class="section-subtitle">
@@ -784,8 +776,8 @@
       </div>
     </section>
 
-    <!-- HOW I CAN HELP TAB -->
-    <section id="help" class="tab-content">
+    <!-- HOW I CAN HELP -->
+    <section id="help">
       <div class="section-inner">
         <h2 class="section-title">How I can help</h2>
         <p class="section-subtitle">
@@ -847,8 +839,8 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE TAB -->
-    <section id="experience" class="tab-content">
+    <!-- EXPERIENCE -->
+    <section id="experience">
       <div class="section-inner">
         <h2 class="section-title">Experience</h2>
         <p class="section-subtitle">
@@ -1006,8 +998,8 @@
       </div>
     </section>
 
-    <!-- SKILLS TAB -->
-    <section id="skills" class="tab-content">
+    <!-- SKILLS -->
+    <section id="skills">
       <div class="section-inner">
         <h2 class="section-title">Skills</h2>
         <p class="section-subtitle">
@@ -1086,8 +1078,8 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS TAB -->
-    <section id="certifications" class="tab-content">
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
       <div class="section-inner">
         <h2 class="section-title">Certifications</h2>
         <p class="section-subtitle">
@@ -1128,8 +1120,8 @@
       </div>
     </section>
 
-    <!-- EDUCATION TAB -->
-    <section id="education" class="tab-content">
+    <!-- EDUCATION -->
+    <section id="education">
       <div class="section-inner">
         <h2 class="section-title">Education</h2>
 
@@ -1158,8 +1150,8 @@
       </div>
     </section>
 
-    <!-- CONTACT TAB -->
-    <section id="contact" class="tab-content">
+    <!-- CONTACT -->
+    <section id="contact">
       <div class="section-inner">
         <h2 class="section-title">Contact</h2>
         <p class="section-subtitle">
@@ -1221,13 +1213,9 @@
       }, 1200);
     }
 
-    // Tab navigation + scroll to sections
-    const tabLinks = document.querySelectorAll("[data-tab]");
-    const tabs = document.querySelectorAll(".tab-content");
     const headerEl = document.querySelector("header");
     let headerHeight = headerEl ? headerEl.offsetHeight : 0;
 
-    // Update header height on resize (for mobile)
     window.addEventListener("resize", () => {
       headerHeight = headerEl ? headerEl.offsetHeight : 0;
     });
@@ -1245,36 +1233,31 @@
       });
     }
 
-    function activateTab(name, doScroll = true) {
-      tabs.forEach((sec) => {
-        sec.classList.toggle("active", sec.id === name);
-      });
+    const navLinks = document.querySelectorAll("nav a[data-tab]");
+    const tabButtons = document.querySelectorAll("[data-tab]");
 
-      const navLinks = document.querySelectorAll("nav a[data-tab]");
+    function setActiveNav(name) {
       navLinks.forEach((lnk) => {
         lnk.classList.toggle("active", lnk.getAttribute("data-tab") === name);
       });
-
-      if (doScroll) {
-        scrollToSection(name);
-      }
     }
 
-    tabLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
         e.preventDefault();
-        const tabName = link.getAttribute("data-tab");
-        if (tabName) {
-          activateTab(tabName, true);
-        }
+        const tabName = btn.getAttribute("data-tab");
+        if (!tabName) return;
+        setActiveNav(tabName);
+        scrollToSection(tabName);
       });
     });
 
-    // Hero button -> How I can help tab
+    // Hero button -> How I can help
     const heroBtn = document.getElementById("hero-help-btn");
     if (heroBtn) {
       heroBtn.addEventListener("click", () => {
-        activateTab("help", true);
+        setActiveNav("help");
+        scrollToSection("help");
       });
     }
   </script>
