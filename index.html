@@ -16,9 +16,7 @@
     content="GCP certified Data & Analytics Engineer building cloud data platforms, analytics pipelines and ML-ready datasets."
   />
   <meta property="og:type" content="website" />
-  <!-- Replace with your actual deployed URL -->
   <meta property="og:url" content="https://your-domain.com" />
-  <!-- Replace with full URL to your hero image -->
   <meta property="og:image" content="https://your-domain.com/hero-bg.jpg" />
 
   <!-- Twitter card -->
@@ -72,17 +70,37 @@
       color: #1d4ed8;
     }
 
+    /* Scroll progress bar */
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, #3b82f6, #6366f1, #22c55e);
+      z-index: 60;
+      transform-origin: left center;
+      transition: width 0.08s linear;
+    }
+
     /* Header / nav */
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 40;
+      z-index: 50;
       backdrop-filter: blur(16px);
       background: rgba(255, 255, 255, 0.95);
       border-bottom: 1px solid rgba(229, 231, 235, 0.9);
-      transition: box-shadow 0.25s ease, background 0.25s ease;
+      transition: box-shadow 0.25s ease, background 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .header-scrolled {
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+      background: rgba(255, 255, 255, 0.98);
     }
 
     .nav-inner {
@@ -124,7 +142,7 @@
       cursor: pointer;
       position: relative;
       padding-bottom: 0.1rem;
-      transition: color 0.2s ease;
+      transition: color 0.22s ease;
     }
 
     nav a::after {
@@ -134,9 +152,9 @@
       bottom: -0.05rem;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #3b82f6, #2563eb);
+      background: linear-gradient(90deg, #3b82f6, #6366f1);
       border-radius: 999px;
-      transition: width 0.22s ease;
+      transition: width 0.2s ease;
     }
 
     nav a:hover::after {
@@ -216,13 +234,13 @@
       background-repeat: no-repeat;
       opacity: 0.9;
       transform: scale(1.04);
-      animation: heroZoom 22s ease-in-out infinite alternate;
+      animation: heroZoom 24s ease-in-out infinite alternate;
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.4), transparent);
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.5), transparent);
     }
 
     .hero-content {
@@ -245,10 +263,19 @@
       font-weight: 500;
       color: var(--accent);
       margin-bottom: 1rem;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
     }
 
     .hero-role-line span {
       font-weight: 700;
+      position: relative;
+    }
+
+    .hero-role-line span.fade-role {
+      animation: fadeRole 0.7s ease-in-out;
     }
 
     .hero-sub {
@@ -341,6 +368,15 @@
     .section-inner {
       max-width: var(--max-width);
       margin: 0 auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      will-change: opacity, transform;
+    }
+
+    .page-section.section-in-view .section-inner {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section-title {
@@ -374,8 +410,8 @@
         border-color 0.2s ease, background-color 0.2s ease;
     }
 
-    .about-card:hover {
-      transform: translateY(-4px);
+    .about-card.scroll-card.in-view {
+      transform: translateY(0) scale(1);
       box-shadow: 0 24px 55px rgba(15, 23, 42, 0.16);
       border-color: #cbd5f5;
     }
@@ -527,12 +563,19 @@
       padding: 1rem 1.1rem 0.9rem;
       font-size: 0.9rem;
       color: var(--text-muted);
-      transition: transform 0.22s ease, box-shadow 0.22s ease,
-        border-color 0.22s ease, background-color 0.22s ease;
+      transition: transform 0.24s ease, box-shadow 0.24s ease,
+        border-color 0.24s ease, background-color 0.24s ease,
+        opacity 0.6s ease;
     }
 
-    .track-card:hover {
-      transform: translateY(-4px);
+    .track-card.scroll-card {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+    }
+
+    .track-card.scroll-card.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
       box-shadow: var(--shadow-soft);
       border-color: #c7d2fe;
       background-color: #f9fafb;
@@ -597,12 +640,18 @@
       padding: 1.2rem 1.4rem 1rem;
       font-size: 0.93rem;
       color: var(--text-muted);
-      transition: transform 0.22s ease, box-shadow 0.22s ease,
-        border-color 0.22s ease;
+      transition: transform 0.24s ease, box-shadow 0.24s ease,
+        border-color 0.24s ease, opacity 0.6s ease;
     }
 
-    .exp-card:hover {
-      transform: translateY(-4px);
+    .exp-card.scroll-card {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+    }
+
+    .exp-card.scroll-card.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
       box-shadow: var(--shadow-soft);
       border-color: #c7d2fe;
     }
@@ -663,12 +712,18 @@
       padding: 1rem 1.1rem 0.9rem;
       font-size: 0.9rem;
       color: var(--text-muted);
-      transition: transform 0.22s ease, box-shadow 0.22s ease,
-        border-color 0.22s ease;
+      transition: transform 0.24s ease, box-shadow 0.24s ease,
+        border-color 0.24s ease, opacity 0.6s ease;
     }
 
-    .skill-card:hover {
-      transform: translateY(-4px);
+    .skill-card.scroll-card {
+      opacity: 0;
+      transform: translateY(24px) scale(0.985);
+    }
+
+    .skill-card.scroll-card.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
       box-shadow: var(--shadow-soft);
       border-color: #c7d2fe;
     }
@@ -707,12 +762,18 @@
       color: #1d4ed8;
       font-size: 0.86rem;
       min-width: 240px;
-      transition: transform 0.22s ease, box-shadow 0.22s ease,
-        border-color 0.22s ease, background-color 0.22s ease;
+      transition: transform 0.24s ease, box-shadow 0.24s ease,
+        border-color 0.24s ease, background-color 0.24s ease, opacity 0.6s ease;
     }
 
-    .cert-badge:hover {
-      transform: translateY(-4px);
+    .cert-badge.scroll-card {
+      opacity: 0;
+      transform: translateY(20px) scale(0.985);
+    }
+
+    .cert-badge.scroll-card.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
       box-shadow: var(--shadow-soft);
       border-color: #bfdbfe;
       background-color: #e0edff;
@@ -748,12 +809,18 @@
       padding: 1rem 1.1rem 0.9rem;
       font-size: 0.9rem;
       color: var(--text-muted);
-      transition: transform 0.22s ease, box-shadow 0.22s ease,
-        border-color 0.22s ease;
+      transition: transform 0.24s ease, box-shadow 0.24s ease,
+        border-color 0.24s ease, opacity 0.6s ease;
     }
 
-    .edu-card:hover {
-      transform: translateY(-4px);
+    .edu-card.scroll-card {
+      opacity: 0;
+      transform: translateY(24px) scale(0.985);
+    }
+
+    .edu-card.scroll-card.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
       box-shadow: var(--shadow-soft);
       border-color: #c7d2fe;
     }
@@ -774,12 +841,18 @@
       padding: 1.1rem 1.2rem 1rem;
       font-size: 0.92rem;
       color: var(--text-muted);
-      transition: transform 0.22s ease, box-shadow 0.22s ease,
-        border-color 0.22s ease;
+      transition: transform 0.24s ease, box-shadow 0.24s ease,
+        border-color 0.24s ease, opacity 0.6s ease;
     }
 
-    .contact-card:hover {
-      transform: translateY(-4px);
+    .contact-card.scroll-card {
+      opacity: 0;
+      transform: translateY(24px) scale(0.985);
+    }
+
+    .contact-card.scroll-card.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
       box-shadow: var(--shadow-soft);
       border-color: #c7d2fe;
     }
@@ -819,7 +892,7 @@
       color: var(--text-muted);
     }
 
-    /* Animation helpers */
+    /* Animations */
 
     @keyframes heroZoom {
       from {
@@ -841,26 +914,21 @@
       }
     }
 
-    .animate-fade-in-up {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .animate-fade-in-up.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Subtle header elevation on scroll */
-
-    .header-scrolled {
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
-      background: rgba(255, 255, 255, 0.97);
+    @keyframes fadeRole {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
+  <div class="scroll-progress"></div>
+
   <header>
     <div class="nav-inner">
       <div class="logo">PORTFOLIO</div>
@@ -902,14 +970,14 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="about-wrapper">
+    <section id="about" class="about-wrapper page-section">
       <div class="section-inner">
         <h2 class="section-title">About me</h2>
         <p class="section-subtitle">
           A data and analytics engineer focused on practical systems that support decision making.
         </p>
 
-        <div class="about-card">
+        <div class="about-card scroll-card">
           <div class="about-left">
             <img src="profile.jpeg" alt="Sanay Shah" class="about-photo" />
             <div class="about-name">Sanay Shah</div>
@@ -987,7 +1055,7 @@
     </section>
 
     <!-- HOW CAN I HELP -->
-    <section id="help">
+    <section id="help" class="page-section">
       <div class="section-inner">
         <h2 class="section-title">How Can I Help?</h2>
         <p class="section-subtitle">
@@ -995,7 +1063,7 @@
         </p>
 
         <div class="tracks-grid">
-          <div class="track-card">
+          <div class="track-card scroll-card">
             <div class="track-title">Design and scale data platforms</div>
             <div class="track-tagline">BigQuery · Airflow · Pub/Sub · Dataflow · Dataproc</div>
             <div class="track-tags">
@@ -1012,7 +1080,7 @@
             </p>
           </div>
 
-          <div class="track-card">
+          <div class="track-card scroll-card">
             <div class="track-title">Data analytics and ML ready data</div>
             <div class="track-tagline">Looker · GA4 · Tableau · Feature datasets</div>
             <div class="track-tags">
@@ -1029,7 +1097,7 @@
             </p>
           </div>
 
-          <div class="track-card">
+          <div class="track-card scroll-card">
             <div class="track-title">Reliability, governance, security and quality</div>
             <div class="track-tagline">Docker · GKE · CI/CD · Grafana · ELK</div>
             <div class="track-tags">
@@ -1050,7 +1118,7 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience">
+    <section id="experience" class="page-section">
       <div class="section-inner">
         <h2 class="section-title">Experience</h2>
         <p class="section-subtitle">
@@ -1058,7 +1126,7 @@
         </p>
 
         <div class="experience-grid">
-          <article class="exp-card">
+          <article class="exp-card scroll-card">
             <div class="exp-header">
               <div class="exp-title">Data and Analytics Engineer II · Prodapt (Client: Verizon)</div>
               <div class="exp-meta">United States · Oct 2023 – Present</div>
@@ -1117,7 +1185,7 @@
             </ul>
           </article>
 
-          <article class="exp-card">
+          <article class="exp-card scroll-card">
             <div class="exp-header">
               <div class="exp-title">Data and Analytics Engineer Intern · Prodapt (Client: Verizon)</div>
               <div class="exp-meta">United States · May 2022 – Jan 2023</div>
@@ -1163,7 +1231,7 @@
             </ul>
           </article>
 
-          <article class="exp-card">
+          <article class="exp-card scroll-card">
             <div class="exp-header">
               <div class="exp-title">Senior Data and Analytics Engineer · Capgemini (Client: Morgan Stanley)</div>
               <div class="exp-meta">India · Sep 2019 – Jul 2021</div>
@@ -1209,7 +1277,7 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
+    <section id="skills" class="page-section">
       <div class="section-inner">
         <h2 class="section-title">Skills</h2>
         <p class="section-subtitle">
@@ -1217,7 +1285,7 @@
         </p>
 
         <div class="skills-grid">
-          <div class="skill-card">
+          <div class="skill-card scroll-card">
             <div class="skill-title">Core strengths</div>
             <div class="skill-body">
               <span>ETL and ELT architecture</span>
@@ -1229,7 +1297,7 @@
             </div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card scroll-card">
             <div class="skill-title">Cloud and databases</div>
             <div class="skill-body">
               <span>GCP: BigQuery, GCS, Pub/Sub, Dataflow, GKE, Vertex AI, Data Catalog, Dataproc</span>
@@ -1238,7 +1306,7 @@
             </div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card scroll-card">
             <div class="skill-title">Streaming and data platforms</div>
             <div class="skill-body">
               <span>Apache Kafka</span>
@@ -1250,7 +1318,7 @@
             </div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card scroll-card">
             <div class="skill-title">Analytics and BI</div>
             <div class="skill-body">
               <span>Looker and LookML</span>
@@ -1261,7 +1329,7 @@
             </div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card scroll-card">
             <div class="skill-title">MLOps, DevOps and tooling</div>
             <div class="skill-body">
               <span>Python, SQL, Shell</span>
@@ -1273,7 +1341,7 @@
             </div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card scroll-card">
             <div class="skill-title">AI, automation and security</div>
             <div class="skill-body">
               <span>NLP ticket classification and routing</span>
@@ -1289,7 +1357,7 @@
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section id="certifications">
+    <section id="certifications" class="page-section">
       <div class="section-inner">
         <h2 class="section-title">Certifications</h2>
         <p class="section-subtitle">
@@ -1298,7 +1366,7 @@
 
         <div class="cert-badges">
           <a
-            class="cert-badge"
+            class="cert-badge scroll-card"
             href="https://www.credly.com/badges/d9c8e18b-86c6-4c11-9ffb-cd26588d881e"
             target="_blank"
             rel="noopener"
@@ -1308,7 +1376,7 @@
           </a>
 
           <a
-            class="cert-badge"
+            class="cert-badge scroll-card"
             href="https://www.credly.com/badges/e93ebf1c-a234-4e5a-910d-f068c88455f1"
             target="_blank"
             rel="noopener"
@@ -1318,7 +1386,7 @@
           </a>
 
           <a
-            class="cert-badge"
+            class="cert-badge scroll-card"
             href="https://www.credly.com/badges/8339498f-55cb-4592-90de-34556c39639b"
             target="_blank"
             rel="noopener"
@@ -1331,12 +1399,12 @@
     </section>
 
     <!-- EDUCATION -->
-    <section id="education">
+    <section id="education" class="page-section">
       <div class="section-inner">
         <h2 class="section-title">Education</h2>
 
         <div class="edu-grid">
-          <div class="edu-card">
+          <div class="edu-card scroll-card">
             <div class="edu-title">Degrees</div>
             <p>
               <strong>Master of Science, Data Analytics Engineering</strong><br />
@@ -1348,7 +1416,7 @@
             </p>
           </div>
 
-          <div class="edu-card">
+          <div class="edu-card scroll-card">
             <div class="edu-title">Focus areas</div>
             <p>
               Coursework and projects across data mining, database design, cloud data
@@ -1361,7 +1429,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" class="page-section">
       <div class="section-inner">
         <h2 class="section-title">Contact</h2>
         <p class="section-subtitle">
@@ -1369,7 +1437,7 @@
           about data platforms and analytics problems in general too.
         </p>
 
-        <div class="contact-card">
+        <div class="contact-card scroll-card">
           <div>📧 <strong>Email</strong>: <a href="mailto:shahsanay25@gmail.com">shahsanay25@gmail.com</a></div>
           <div>📱 <strong>Phone</strong>: 857-318-6077 (US)</div>
           <div>🔗 <strong>Links</strong>:</div>
@@ -1411,16 +1479,23 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Rotating role text
+    // Rotating role text with small fade
     const roles = ["Data Engineer", "Data Analytics Engineer", "Data Scientist"];
     let roleIndex = 0;
     const roleSpan = document.getElementById("role-rotate");
 
+    function updateRole() {
+      if (!roleSpan) return;
+      roleIndex = (roleIndex + 1) % roles.length;
+      roleSpan.classList.remove("fade-role");
+      // trigger reflow so animation restarts
+      void roleSpan.offsetWidth;
+      roleSpan.textContent = roles[roleIndex];
+      roleSpan.classList.add("fade-role");
+    }
+
     if (roleSpan) {
-      setInterval(() => {
-        roleIndex = (roleIndex + 1) % roles.length;
-        roleSpan.textContent = roles[roleIndex];
-      }, 1200);
+      setInterval(updateRole, 1400);
     }
 
     const headerEl = document.querySelector("header");
@@ -1457,7 +1532,6 @@
         e.preventDefault();
         const tabName = btn.getAttribute("data-tab");
         if (!tabName) return;
-        setActiveNav(tabName);
         scrollToSection(tabName);
       });
     });
@@ -1466,40 +1540,65 @@
     const heroBtn = document.getElementById("hero-help-btn");
     if (heroBtn) {
       heroBtn.addEventListener("click", () => {
-        setActiveNav("help");
         scrollToSection("help");
       });
     }
 
-    // Scroll-based reveal animations
-    const animatedEls = document.querySelectorAll(
-      ".about-card, .track-card, .exp-card, .skill-card, .cert-badge, .edu-card, .contact-card"
+    // Scroll-based reveal animations (sections + cards)
+    const sections = document.querySelectorAll("section.page-section");
+    const cards = document.querySelectorAll(
+      ".about-card.scroll-card, .track-card.scroll-card, .exp-card.scroll-card, .skill-card.scroll-card, .cert-badge.scroll-card, .edu-card.scroll-card, .contact-card.scroll-card"
     );
-    animatedEls.forEach((el) => el.classList.add("animate-fade-in-up"));
+
+    // Stagger delays for cards
+    cards.forEach((card, index) => {
+      const delay = (index % 3) * 0.09;
+      card.style.transitionDelay = delay + "s";
+    });
 
     if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
+      const sectionObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
+            const id = entry.target.id;
             if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-              observer.unobserve(entry.target);
+              entry.target.classList.add("section-in-view");
+              if (id) {
+                setActiveNav(id);
+              }
             }
           });
         },
         {
-          threshold: 0.15,
+          threshold: 0.45,
+        }
+      );
+
+      sections.forEach((sec) => sectionObserver.observe(sec));
+
+      const cardObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              cardObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2,
           rootMargin: "0px 0px -40px 0px",
         }
       );
 
-      animatedEls.forEach((el) => observer.observe(el));
+      cards.forEach((card) => cardObserver.observe(card));
     } else {
-      // Fallback: show everything if IntersectionObserver not supported
-      animatedEls.forEach((el) => el.classList.add("in-view"));
+      // Fallback: show everything
+      sections.forEach((sec) => sec.classList.add("section-in-view"));
+      cards.forEach((card) => card.classList.add("in-view"));
     }
 
-    // Header shadow on scroll
+    // Header shadow + subtle lift on scroll
     window.addEventListener("scroll", () => {
       if (!headerEl) return;
       if (window.scrollY > 10) {
@@ -1507,6 +1606,16 @@
       } else {
         headerEl.classList.remove("header-scrolled");
       }
+    });
+
+    // Scroll progress bar
+    const progressBar = document.querySelector(".scroll-progress");
+    window.addEventListener("scroll", () => {
+      if (!progressBar) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + "%";
     });
   </script>
 </body>
