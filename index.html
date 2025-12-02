@@ -94,6 +94,8 @@
       padding: 0.6rem 1.0rem;
     }
 
+    /* PORTFOLIO logo removed */
+
     nav {
       flex: 1;
       overflow-x: auto;
@@ -135,8 +137,8 @@
       border-color: var(--accent);
     }
 
-    /* Hide Contact button on tablet & mobile (keep only on desktop) */
-    @media (max-width: 900px) {
+    /* Hide Contact pill on desktop (keep on phone + tablet) */
+    @media (min-width: 1024px) {
       .nav-cta {
         display: none;
       }
@@ -156,14 +158,15 @@
       }
     }
 
-    /* Show only 3 tabs on mobile: About, How Can I Help, Contact */
+    /* On mobile: show only About, How Can I Help, Experience tabs in header */
     @media (max-width: 640px) {
       .nav-item {
         display: none;
       }
+
       .nav-about,
       .nav-help,
-      .nav-contact {
+      .nav-experience {
         display: block;
       }
     }
@@ -709,7 +712,7 @@
 <body>
   <header>
     <div class="nav-inner">
-      <!-- PORTFOLIO logo removed -->
+      <!-- PORTFOLIO removed -->
       <nav>
         <ul>
           <li class="nav-item nav-about"><a data-tab="about" class="active">About me</a></li>
@@ -721,6 +724,7 @@
           <li class="nav-item nav-contact"><a data-tab="contact">Contact</a></li>
         </ul>
       </nav>
+      <!-- Contact pill: visible on phone + tablet, hidden on desktop via media query -->
       <button class="nav-cta" data-tab="contact">Contact</button>
     </div>
   </header>
